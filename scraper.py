@@ -25,5 +25,7 @@ def scrape(username: str, pwd: str, target_id: str) -> None:
 	following = driver.find_elements(By.XPATH, '/html/body/div[4]/div/div[2]/div[5]/div/div[2]/div[1]/div/main/section/div/section/div[3]/div')
 	print(len(following))
 
+	# followers = driver.find_elements(By.XPATH, ...)
+
 	
 	time.sleep(500000)
