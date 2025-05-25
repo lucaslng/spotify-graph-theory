@@ -6,6 +6,9 @@ class UserNode(NamedTuple):
 	name: str
 	image: str
 
+	def __hash__(self) -> int:
+		return hash(id)
+
 class Edge(NamedTuple):
 
 	from_: str

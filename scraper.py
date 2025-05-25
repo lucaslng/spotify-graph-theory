@@ -15,7 +15,7 @@ def parse_followee(element: WebElement) -> UserNode | None:
 	if aria.startswith('artist'):
 		return None
 	assert aria.startswith('user:')
-	id = aria.removeprefix('user:')[:-2]
+	id = aria.removeprefix('user:').split('-')[0]
 
 
 	img_url = ""
@@ -42,7 +42,7 @@ def scrape(driver: Driver, target_id: str):
 
 	wait(driver)
 
-	time.sleep(4)
+	time.sleep(4.5)
 
 	following_elements = driver.find_elements(By.XPATH, '/html/body/div[4]/div/div[2]/div[5]/div/div[2]/div[1]/div/main/section/div/section/div[3]/div')
 
