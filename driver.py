@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.webdriver import WebDriver as ChromeWebDriver
 from selenium.webdriver.safari.options import Options as SafariOptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
@@ -29,7 +28,7 @@ class Driver(Protocol):
 
   def add_cookie(self, cookie_dict) -> None: ...
 
-def create_brave_driver() -> ChromeWebDriver:
+def create_brave_driver():
   options = ChromeOptions()
   options.binary_location = (
       "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
@@ -53,18 +52,6 @@ def create_uc_driver():
   driver = uc.Chrome(options=options, headless=False, use_subprocess=False)
   driver.implicitly_wait(10)
   return driver
-
-def create_remote_driver():
-  options = ChromeOptions()
-  options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
-  options.binary_location = (
-      "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-  )
-  driver = webdriver.Chrome(options=options)
-  driver.implicitly_wait(10)
-  print(driver.title)
-  return driver
-
 
 def wait(driver: Driver, timeout=20) -> None:
   WebDriverWait(driver, timeout).until(  # type: ignore

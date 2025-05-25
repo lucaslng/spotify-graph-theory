@@ -1,4 +1,4 @@
-from driver import create_brave_driver
+from driver import create_brave_driver, create_safari_driver
 from graphtypes import Edge, UserNode
 from login import login
 from collections import deque
@@ -13,7 +13,8 @@ from sys import maxsize
 
 def scrape_all(session_token: str, target_id: str, max_depth: int) -> None:
 
-	driver = create_brave_driver()
+	# driver = create_brave_driver()
+	driver = create_safari_driver()
 
 	login(driver, session_token)
 	
