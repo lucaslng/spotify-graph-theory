@@ -11,7 +11,8 @@ from pprint import pprint
 from sys import maxsize
 
 
-def scrape_all(session_token: str, target_id: str, max_depth: int) -> None:
+def scrape_all(session_token: str, target_id: str, max_depth: int) -> tuple[set[UserNode], set[Edge]]:
+	'''Uses BFS to search and scrape users'''
 
 	# driver = create_brave_driver()
 	driver = create_safari_driver()
@@ -59,3 +60,5 @@ def scrape_all(session_token: str, target_id: str, max_depth: int) -> None:
 		pprint(nodes)
 		print()
 		pprint(edges)
+	
+	return nodes, edges

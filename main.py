@@ -13,7 +13,7 @@ def main():
 		print("Please put TARGETID in .env!")
 		return
 	
-	scrape_all(token, targetid, 1)
+	scrape_all(token, targetid, 2)
 
 if __name__ == "__main__":
 	main()
